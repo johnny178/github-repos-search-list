@@ -1,0 +1,66 @@
+.itemContainer {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8px 12px;
+  color: #474748;
+  background-color: rgb(252, 244, 227);
+  height: 100%;
+  gap: 5px;
+
+  &::after {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    content: '';
+    width: 100%;
+    background-color: black;
+    height: 1px;
+  }
+
+  .name {
+    color: black;
+    font-size: 20px;
+  }
+
+  .topicContainer {
+    display: flex;
+    gap: 6px;
+    width: 100%;
+    flex-wrap: wrap;
+
+    .topic {
+      background-color: rgb(187, 60, 134);
+      color: rgb(252, 244, 227);
+      border-radius: 6px;
+      padding: 4px 6px;
+      font-size: 12px;
+
+      &:hover {
+        color: white;
+        background-color: black;
+      }
+    }
+
+  }
+
+  .subInfo {
+    display: flex;
+    gap: 15px;
+    color: black;
+
+    .starNum {
+      position: relative;
+      padding-left: 18px;
+
+      &:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        content: '★';
+      }
+    }
+  }
+}
