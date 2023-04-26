@@ -1,0 +1,13 @@
+.inputContainer {
+  display: flex;
+  justify-content: center;
+
+  .input {
+    margin: 1em 0 2em;
+    border: 1px solid white;
+    border-radius: 3px;
+    height: 30px;
+    padding-left: 3px;
+    color: white;
+  }
+}
