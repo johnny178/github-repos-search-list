@@ -32,35 +32,34 @@ pnpm dev
 
 ```
 src
- ┣ apis
- ┃ ┣ HttpCommon.ts        // 用於生成自定義 base url 及配置的 axios instance
- ┃ ┗ search.ts            // 搜尋相關 API HTTP 請求函式
- ┣ components
- ┃ ┣ Common               // 共用 component
- ┃ ┃ ┣ ErrorMessage       // 客製化錯誤訊息元件
- ┃ ┃ ┗ LoadingSkeleton
- ┃ ┣ RepoSearch           // 搜尋 repo 頁相關元件
- ┃ ┃ ┣ LoadingRepoItem
- ┃ ┃ ┣ RepoItem
- ┃ ┃ ┗ SearchBar
- ┣ constants
- ┃ ┗ repoListConfig.ts       // repo 列表相關設定值
- ┣ defines                // TypeScript 定義檔
- ┃ ┣ Api.d.ts             // API options 型別定義檔
- ┃ ┗ search.ts            // 搜尋相關型別定義檔
- ┣ hooks
- ┃ ┣ useInfiniteScroll.ts // 使用 intersection observer 實現無限滾動的 hook
- ┃ ┗ useRepoList.ts       // 使用 repo 列表資料及狀態的 hook
- ┣ pages
- ┣ styles                 // 共用 SASS 樣式
- ┃ ┣ global.scss
- ┃ ┗ reset.scss
- ┣ utils
- ┃ ┣ date.ts              // 處理日期相關共用 utils
- ┃ ┣ debounce.ts          // debounce util
- ┃ ┣ number.ts            // 處理數字相關共用 utils
- ┗ ┗ string.ts            // 處理字串相關共用 utils
-
+├── apis
+│   ├── HttpCommon.ts                         // 用於生成自定義 base url 及配置的 axios instance
+│   └── search.ts                             // 搜尋相關 API HTTP 請求函式
+├── components
+│   ├── Common                                // 共用 component
+│   │   ├── ErrorMessage                      // 客製化錯誤訊息元件
+│   │   └── LoadingSkeleton
+│   └── RepoSearch                            // 搜尋 repo 頁相關元件
+│       ├── LoadingRepoItem
+│       ├── RepoItem
+│       └── SearchBar
+├── constants
+│   └── repoListConfig.ts                     // repo 列表相關設定值
+├── defines
+│   ├── Api.d.ts                              // API option 型別定義檔
+│   └── Search.d.ts                           // 搜尋相關型別定義檔
+├── hooks
+│   ├── useInfiniteScroll.ts                  // 使用 intersection observer 實現無限滾動的 hook
+│   └── useRepoList.ts                        // 使用 repo 列表資料及狀態的 hook
+├── pages
+├── styles                                    // 共用 SASS 樣式
+│   ├── global.scss
+│   └── reset.scss
+└── utils
+    ├── date.ts                               // 處理日期相關共用 utils
+    ├── debounce.ts                           // debounce util
+    ├── number.ts                             // 處理數字相關共用 utils
+    └── string.ts                             // 處理字串相關共用 utils
 ```
 
 ## 開發手法
