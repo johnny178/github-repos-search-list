@@ -10,6 +10,7 @@ import { LIST_HEIGHT, PER_PAGE_NUM, REPO_ITEM_HEIGHT } from 'constants/repoListC
 
 const List = dynamic(() => import('react-window').then(module => module.FixedSizeList));
 const RepoItem = dynamic(() => import('components/RepoSearch/RepoItem/RepoItem'));
+const ErrorMessage = dynamic(() => import('components/Common/ErrorMessage/ErrorMessage'));
 
 export default function Home() {
   const [searchText, setSearchText] = useState('');
@@ -23,8 +24,15 @@ export default function Home() {
     totalReposNumber
   } = useRepoList({ searchQuery: searchText, enabled: !!searchText });
 
+  const isNoData = searchText && !isRepoListFetching && totalReposNumber === 0 && !isRepoListError;
+  const listItemCount = (() => {
+    if (isRepoListFetching && !isPageListFetchingNextPage) return PER_PAGE_NUM;
+
+    return hasNextPage ? totalReposNumber + 1 : totalReposNumber;
+  })()
+
   const { lastElementRef } = useInfiniteScroll({
-    loading: isRepoListFetching,
+    isLoading: isRepoListFetching,
     hasMore: hasNextPage,
     callback: fetchNextPage,
   })
@@ -53,12 +61,6 @@ export default function Home() {
     )
   }
 
-  const listItemCount = (() => {
-    if (isRepoListFetching && !isPageListFetchingNextPage) return PER_PAGE_NUM;
-
-    return hasNextPage ? totalReposNumber + 1 : totalReposNumber;
-  })()
-
   return (
     <>
       <Head>
@@ -69,9 +71,9 @@ export default function Home() {
       </Head>
       <main style={{ maxWidth: '80%', margin: 'auto' }}>
         <SearchBar setSearchText={setSearchText} />
-        {isRepoListError && <span>請求資料失敗，請稍後再試...</span>}
-        {searchText && !isRepoListFetching && totalReposNumber === 0 && <span>查無資料</span>}
-        {searchText &&
+        {isRepoListError && <ErrorMessage text='請求資料失敗，請稍後再試...' />}
+        {isNoData && <ErrorMessage text='查無資料' />}
+        {searchText && !isRepoListError && !isNoData &&
           <List
             key={searchText}
             className="List"
