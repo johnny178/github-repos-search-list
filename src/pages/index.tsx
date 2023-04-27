@@ -25,7 +25,7 @@ export default function Home() {
 
   const { lastElementRef } = useInfiniteScroll({
     loading: isRepoListFetching,
-    hasMore: hasNextPage ?? false,
+    hasMore: hasNextPage,
     callback: fetchNextPage,
   })
 

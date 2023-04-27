@@ -44,7 +44,6 @@ const useRepoList = ({
     hasNextPage = false,
     fetchNextPage,
   } = useInfiniteQuery(["reposList", searchQuery], fetchRepoList, {
-    placeholderData: { pages: [defaultRepoList], pageParams: [1] },
     getNextPageParam: (lastPage, allPages) => {
       if (lastPage.items.length < PER_PAGE_NUM) return undefined;
 
