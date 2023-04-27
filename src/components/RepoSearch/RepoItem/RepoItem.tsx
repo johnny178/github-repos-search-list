@@ -45,7 +45,7 @@ const RepoItem: FC<RepoItemProps> = ({ style, name, url, description, topics, st
   const renderSubInfo = () => (
     <div className={styles.subInfo}>
       <span className={styles.starNum}>{formatNumberToThousand(starsNum)}</span>
-      <span>• {language}</span>
+      {language && <span>• {language}</span>}
       <span>Updated on {formatDateWithMonthName(pushedDate)}</span>
     </div>
   )
