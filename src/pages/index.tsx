@@ -66,7 +66,7 @@ export default function Home() {
       <Head>
         <title>Github Repos Search List</title>
         <meta name="description" content="Github Repos Search List" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main style={{ maxWidth: '80%', margin: 'auto' }}>
